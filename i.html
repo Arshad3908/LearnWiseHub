@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      </nav>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+  <br><br><br><br><br>
+
+              
+              <form id="loginForm" onsubmit="return validateForm()" action="home.html">
+                  <label for="email">Username:</label>
+                  <input type="text" id="email" name="email" required placeholder="Enter Your Username">
+                  <br>
+          
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+                  <br>
+          
+                  <input type="submit" value="Login">
+                  <button onclick="showMessage()">Sign Up</button>
+              </form>
+          
+              <script>
+                function validateForm() {
+                  const email = document.getElementById("email").value;
+                  const password = document.getElementById("password").value;
+              
+                  // Check if both email and password are filled
+                  if (!email || !password) {
+                    alert("PLEASE FILL THE NECESSARY INFORMATION");
+                    return false;
+                  }
+              
+                  // Check if the email is on the blocked list
+                  const blockedEmails = ["email@email.com", "gmail@email" , "gmail@gmail.com" , "email@gmail.com"];
+                  if (blockedEmails.includes(email.toLowerCase())) {
+                    alert("Sorry, not allowed.");
+                    return false;
+                  }
+              
+                  // Check if user details already stored
+                  const storedEmail = localStorage.getItem("storedEmail");
+                  const storedPassword = localStorage.getItem("storedPassword");
+              
+                  if (storedEmail && storedPassword) {
+                    // Check if the provided email and password match the stored details
+                    if (email !== storedEmail || password !== storedPassword) {
+                      alert("ERROR 404! This is not your registered account.");
+                      return false;
+                    } else {
+                      // Display welcome back message with a "Thanks" button
+                      const welcomeBackMessage = confirm("Welcome back! Click 'Okay' to continue.");
+                      if (welcomeBackMessage) {
+                        window.location.href = "home.html";
+                      }
+                      return false;
+                    }
+                  } else {
+                    // Store user details for the first time
+                    localStorage.setItem("storedEmail", email);
+                    localStorage.setItem("storedPassword", password);
+                  }
+              
+                  // Display success message and redirect
+                  alert("Successful 🥰🥰🥰");
+                  const confirmMessage = confirm("THANK YOU");
+                  if (confirmMessage) {
+                    window.location.href = "home.html";
+                  }
+              
+                  return true;
+                }
+              
+                function showMessage() {
+                  alert("ERROR 404! Redirecting to createaccount.html");
+                  window.location.href = "createaccount1.html";
+                }
+              </script>
+              
+          <style>
+           
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              position: relative;
+            }
+            
+            body::before {
+              content: "";
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: url('https://www.globalgiving.org/pfil/42179/pict_large.jpg') center/cover no-repeat;
+              opacity: 0.5;
+              z-index: -1;
+            }
+            
+            form {
+              background-color: rgba(255, 255, 255, 0.8);
+              max-width: 320px;
+              margin: 0 auto;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            h1 {
+              color: #333;
+            }
+            
+            form {
+              background-color: #fff;
+              max-width: 320px;
+              margin: 0 auto;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            label,
+            input {
+              display: block;
+              margin-bottom: 10px;
+            }
+            
+            input[type="text"],
+            input[type="password"] {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            }
+            
+            input[type="submit"],
+            button {
+              width: 100%;
+              padding: 10px;
+              background-color:  hsl(235, 70%, 60%);
+              color: #fff;
+              border: none;
+              border-radius: 3px;
+              cursor: pointer;
+            }
+            
+            input[type="submit"]:hover,
+            button:hover {
+              background-color:  hsl(235, 70%, 60%);
+            }
+            
+            @media (max-width: 600px) {
+              form {
+                width: 90%;
+                margin: 0 auto;
+              }
+            }
+            
+            /* Additional styles for better mobile display */
+            @media (max-width: 480px) {
+              body::before {
+                background-size: cover; /* Adjust background size for smaller screens */
+              }
+            }
+            
+          </style>
+          <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="arrow-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

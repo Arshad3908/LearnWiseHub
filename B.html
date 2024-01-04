@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form id="loginForm" onsubmit="return validateForm()" action="index.html">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <input type="submit" value="Login">
+        <button onclick="showMessage()">Sign Up</button>
+    </form>
+
+    <script>
+        function validateForm() {
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+      
+          // Check if both email and password are filled
+          if (!email || !password) {
+            alert("PLEASE FILL THE NECESSARY INFORMATION");
+            return false;
+          }
+      
+          // Check if user details already stored
+          const storedEmail = localStorage.getItem("storedEmail");
+          const storedPassword = localStorage.getItem("storedPassword");
+      
+          if (storedEmail && storedPassword) {
+            // Check if the provided email and password match the stored details
+            if (email !== storedEmail || password !== storedPassword) {
+              alert("ERROR 404! This is not your registered account.");
+              return false;
+            } else {
+              // Display welcome back message with a "Thanks" button
+              const welcomeBackMessage = confirm("Welcome back! Click 'Okay' to continue.");
+              if (welcomeBackMessage) {
+                window.location.href = "index.html";
+              }
+              return false;
+            }
+          } else {
+            // Store user details for the first time
+            localStorage.setItem("storedEmail", email);
+            localStorage.setItem("storedPassword", password);
+          }
+      
+          // Display success message and redirect
+          alert("Registration Successful 🥰🥰🥰");
+          const confirmMessage = confirm("THANK YOU");
+          if (confirmMessage) {
+            window.location.href = "index.html";
+          }
+      
+          return true;
+        }
+      
+        function showMessage() {
+          alert("ERROR 404! Redirecting to createaccount.html");
+          window.location.href = "createaccount.html";
+        }
+      </script>
+      
+</body>
+</html>
+
+
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+  }
+
+  h1 {
+      color: #333;
+  }
+
+  form {
+      background-color: #fff;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  label, input {
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+  }
+
+  input[type="submit"], button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0074a3;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+  }
+
+  input[type="submit"]:hover, button:hover {
+      background-color: #005785;
+  }
+
+  @media (max-width: 600px) {
+      form {
+          width: 100%;
+          height: 100%;
+          margin: 0 auto;
+      }
+  }
+</style>
+
+

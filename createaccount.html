@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      </nav>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+            <br><br><br><br><br>
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  position: relative;
+                }
+              
+                body::before {
+                  content: "";
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: url('https://newsghana.com.gh/wp-content/uploads/2022/03/Secondary-School-Education.jpg') center/cover no-repeat; /* Set your image URL */
+                  z-index: -1;
+                  opacity: 0.8;
+                }
+              
+                h1 {
+                  
+                  text-align: center;
+                }
+              
+                form {
+                  background-color: #fff;
+                  max-width: 320px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                }
+              
+                label, input {
+                  display: block;
+                  margin-bottom: 10px;
+                }
+              
+                /* Your other styles */
+              
+                /* Media query for screens with a maximum width of 600 pixels (typical for mobile devices) */
+                @media (max-width: 600px) {
+                  body::before {
+                    background: none;
+                  }
+              
+                  body {
+                    background-color: #fff; /* Set the background color to white on small screens */
+                  }
+                }
+          
+                  label, input, select {
+                      display: block;
+                      margin-bottom: 5px; /* Reduced margin */
+                  }
+          
+                  input, select {
+                      width: 100%;
+                      padding: 8px; /* Reduced padding */
+                      font-size: 14px; /* Reduced font size */
+                      border: 1px solid #ccc;
+                      border-radius: 5px;
+                  }
+          
+                  input[type="submit"] {
+                      background-color: hsl(235, 70%, 60%);
+                      color: #fff;
+                      border: none;
+                      padding: 8px 16px; /* Reduced padding */
+                      border-radius: 5px;
+                      cursor: pointer;
+                      width: 100%;
+                      height: 50px;
+                  }
+
+
+                  input[type="button"] {
+                    background-color:  hsl(235, 70%, 60%);
+                    color: #fff;
+
+                  }
+          
+                  @media screen and (max-width: 600px) {
+                      form {
+                          padding: 5px; /* Reduced padding for smaller screens */
+                      }
+                  }
+              </style>
+          <body>
+              
+              <form id="registrationForm">
+                  <label for="firstName">First Name:</label>
+                  <input type="text" id="firstName" name="firstName" required>
+          
+                  <label for="lastName">Last Name:</label>
+                  <input type="text" id="lastName" name="lastName" required>
+          
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+          
+                  <label for="school">Select School:</label>
+                  <select id="school" name="school">
+                      <option value="IBOKUN GRAMMAR SCHOOL">IBOKUN GRAMMAR SCHOOL</option>
+                      <option value="IMESI ILE HIGH SCHOOL IMESI-ILE">IMESI ILE HIGH SCHOOL IMESI-ILE</option>
+                      <option value="IPETU ILE COMMUNITY GRAMMAR SCHOOL">IPETU ILE COMMUNITY GRAMMAR SCHOOL</option>
+                      <option value="ILARE COMMUNITY HIGH SCHOOL">ILARE COMMUNITY HIGH SCHOOL</option>
+                      <option value="ESA-OKE GRAMMAR SCHOOL">ESA-OKE GRAMMAR SCHOOL</option>
+                      <option value="IFELODUN COMMUNITY GRAMMAR SCHOOL KILORU">IFELODUN COMMUNITY GRAMMAR SCHOOL KILORU</option>
+                      <option value="ILUMEFA COMMUNITY HIGH SCHOOL IDOKO">ILUMEFA COMMUNITY HIGH SCHOOL IDOKO</option>
+                      <option value="ILASE COMMUNITY HIGH SCH ILASE">ILASE COMMUNITY HIGH SCH ILASE</option>
+                      <option value="LOCAL AUTHORITY GRAMMAR SCHOOL IBOKUN">LOCAL AUTHORITY GRAMMAR SCHOOL IBOKUN</option>
+                      <option value="ST JOSEPH CATHOLIC GRAMMAR SCHOOL ESA-OKE">ST JOSEPH CATHOLIC GRAMMAR SCHOOL ESA-OKE</option>
+                      <option value="COMMUNITY HIGH SCHOOL ILAHUN">COMMUNITY HIGH SCHOOL ILAHUN</option>
+                      <option value="COMMUNITY GRAMMAR SCHOOL ESA-ODO">COMMUNITY GRAMMAR SCHOOL ESA-ODO</option>
+                      <option value="IKINYINWA\/IPONDA GRAMMAR SCHOOL IKINYINWA">IKINYINWA\/IPONDA GRAMMAR SCHOOL IKINYINWA</option>
+                      <option value="COMMUNITY GRAMMAR SCHOOL OTAN-ILE">COMMUNITY GRAMMAR SCHOOL OTAN-ILE</option>
+                      <option value=" ADA OWODE COMMUNITY BAPTIST HIGH SCHOOL"> ADA OWODE COMMUNITY BAPTIST HIGH SCHOOL</option>
+                      <option value=" UNITY SCHOOL IMESI-ILE"> UNITY SCHOOL IMESI-ILE</option>
+                      <!-- Add more schools here -->
+                  </select>
+          
+                  <label for="class">Select Class:</label>
+                  <select id="class" name="class">
+                      <option value="Grade 7">JSS 1</option>
+                      <option value="Grade 8">JSS 2</option>
+                      <option value="Grade 9">JSS 3</option>
+                      <option value="Grade 10">SS 1</option>
+                      <option value="Grade 11">SS 2</option>
+                      <option value="Grade 12">SS 3</option>
+                      <!-- Add more classes here -->
+                  </select>
+          
+          
+                  <label for="phoneNumber">Phone Number:</label>
+                  <input type="tel" id="phoneNumber" name="phoneNumber" required>
+          
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" required>
+          
+                  <input type="button" value="Create Account" onclick="validateForm()" >
+                  <label for="firstName"  style="color:  #626a6a;">Already have account click<a href="signup.html"><b style="color: hsl(235, 70%, 60%);">HERE</b></label>
+              </form>
+          
+              <script>
+                  function validateForm() {
+                      const firstName = document.getElementById("firstName").value;
+                      const lastName = document.getElementById("lastName").value;
+                      const email = document.getElementById("email").value;
+                      const phoneNumber = document.getElementById("phoneNumber").value;
+                      const password = document.getElementById("password").value;
+          
+                      if (firstName === "" || lastName === "" || email === "" || phoneNumber === "" || password === "") {
+                          alert("PLEASE FILL THE NECESSARY INFORMATION");
+                      } else {
+                          // Redirect to signup.html (replace with your actual URL)
+                          window.location.href = "signup.html";
+                      }
+                  }
+              </script>
+          </body>
+          </html>
+          
+          
+<a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+  <ion-icon name="arrow-up"></ion-icon>
+</a>
+<!-- 
+  - custom js link
+-->
+<script src="script.js" defer></script>
+
+<!-- 
+  - ionicon link
+-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
